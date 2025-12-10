@@ -1,7 +1,7 @@
 // src/components/Login.jsx
 import { useState } from 'react'
 
-function Login({ onLogin, hasUser }) {
+function Login({ onLogin, hasUser, canInstall, onInstallClick }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -63,6 +63,18 @@ function Login({ onLogin, hasUser }) {
             {hasUser ? 'Ingresar' : 'Crear usuario y entrar'}
           </button>
         </form>
+
+        {/* 👇 botón opcional para instalar la app */}
+        {canInstall && (
+          <button
+            type="button"
+            className="logout-button"
+            style={{ marginTop: '1rem' }}
+            onClick={onInstallClick}
+          >
+            Instalar app en este dispositivo
+          </button>
+        )}
       </div>
     </div>
   )
